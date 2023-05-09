@@ -17,6 +17,7 @@ public class BookshelfController {
 
     @Autowired
     private BookshelfRepo bookshelfRepo;
+    @Autowired
     private RestTemplate restTemplate;
 
 

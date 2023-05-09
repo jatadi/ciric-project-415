@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-service-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: book-service
+  template:
+    metadata:
+      labels:
+        app: book-service
+    spec:
+      containers:
+        - name: book-service
+          image: cikacira/book-service:latest
+          ports:
+            - containerPort: 8081
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-service
+spec:
+  selector:
+    app: book-service
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8081
+      nodePort: 30001
+
+
