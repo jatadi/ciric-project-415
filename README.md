@@ -2,9 +2,9 @@
 
 This is a library application project built using Spring Boot and deployed on Kubernetes. The project consists of the following microservices:
 
-•	book-service: microservice responsible for managing books using CRUD operations on in-memory repository of books
+•__book-service__: microservice responsible for managing books using CRUD operations on in-memory repository of books
 
-•	bookshelf-service: microservice responsible for managing bookshelfs containing book details using CRUD operations and RestTemplate
+•	__bookshelf-service__: microservice responsible for managing bookshelfs containing book details using CRUD operations and RestTemplate
 
 The bookshelf-service calls the book-service using a REST call to get bookshelves with all books inside of them.
 
@@ -17,7 +17,7 @@ The bookshelf-service calls the book-service using a REST call to get bookshelve
 
 •	MySQL
 
-Setup
+<h2>Setup</h2>
 
 
 Clone this repository to your local machine.
@@ -32,7 +32,7 @@ kubectl apply -f ./
 
 once inside the kubernetes directory.
 
-Modules
+<h2>Modules</h2>
 
 
 The application consists of the following modules:
@@ -45,7 +45,7 @@ The application consists of the following modules:
 
 •	Searching books and bookshelfs with IDs
 
-Accessing the Microservices
+<h2>Accessing the Microservices</h2>
 
 
 After the microservices have been deployed, you can access them using the following curls:
@@ -56,7 +56,7 @@ POST http://<external_ip>/book
 
 example entries:
 
-{
+'{
         "id": 1,
         
          "name": "1984",
@@ -68,9 +68,9 @@ example entries:
           "rating": 9,
          
           "bookshelfId": 1
-}
+}'
 
-{
+'{
 
 "id": 3,
 
@@ -84,7 +84,7 @@ example entries:
 
 "bookshelfId": 3
 
-}
+}'
 
 GET http://<external_ip>/book
 
@@ -97,6 +97,12 @@ http://<external_ip>/bookshelf
 POST http://<external_ip>/bookshelf
 
 example entries:
+
+'{
+	“id”: “1”,
+	“floor”: “2”
+}'
+
 
 GET http://<external_ip>/bookshelf
 
