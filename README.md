@@ -55,7 +55,7 @@ POST http://<external_ip>/book
 
 example entries:
 
-`{
+{
         "id": 1,
         
          "name": "1984",
@@ -67,9 +67,9 @@ example entries:
           "rating": 9,
          
           "bookshelfId": 1
-}`
+}
 
-`{
+{
 
 "id": 3,
 
@@ -83,7 +83,7 @@ example entries:
 
 "bookshelfId": 3
 
-}`
+}
 
 GET http://<external_ip>/book
 
@@ -97,13 +97,13 @@ POST http://<external_ip>/bookshelf
 
 example entries:
 
-`{
+{
 
 	“id”: “1”,
 	
 	“floor”: “2”
 	
-}`
+}
 
 
 GET http://<external_ip>/bookshelf
