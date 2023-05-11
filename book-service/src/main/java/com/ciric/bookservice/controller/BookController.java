@@ -6,10 +6,13 @@ import com.ciric.bookservice.model.Book;
 import com.ciric.bookservice.repo.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/book")
 public class BookController {
+    @Autowired
+    RestTemplate restTemplate;
 
     @Autowired
     BookRepo bookRepo;
@@ -31,7 +34,9 @@ public class BookController {
 
     @GetMapping("/bookshelf/{bookshelfId}")
     public List<Book> findByBookshelf(@PathVariable("bookshelfId") int bookshelfId) {
-        return bookRepo.findByBookshelf(bookshelfId);
+        String url = String.format("%s/book/bookshelf/%d", System.getenv("BOOKSHELF_SERVICE_URL"), bookshelfId);
+        return restTemplate.getForObject(url, List.class);
     }
+
 
 }

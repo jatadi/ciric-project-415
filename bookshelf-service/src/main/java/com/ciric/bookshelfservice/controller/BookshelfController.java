@@ -4,6 +4,7 @@ import com.ciric.bookshelfservice.model.Book;
 import com.ciric.bookshelfservice.model.Bookshelf;
 import com.ciric.bookshelfservice.repo.BookshelfRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +20,8 @@ public class BookshelfController {
     private BookshelfRepo bookshelfRepo;
     @Autowired
     private RestTemplate restTemplate;
+    @Value("${book.service.url}")
+    private String bookServiceUrl;
 
 
     @PostMapping
@@ -43,12 +46,14 @@ public class BookshelfController {
             return new ArrayList<Bookshelf>();
         }
         for (Bookshelf bookshelf : bookshelves) {
-            Book[] books = restTemplate.getForObject("http://localhost:8081/book/bookshelf/" + bookshelf.getId(), Book[].class);
-            bookshelf.setBooks(Arrays.asList(books));
+            try {
+                Book[] books = restTemplate.getForObject(bookServiceUrl + "/book/bookshelf/" + bookshelf.getId(), Book[].class);
+                bookshelf.setBooks(Arrays.asList(books));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-
         return bookshelves;
     }
-
 
 }
