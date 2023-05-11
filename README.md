@@ -9,7 +9,7 @@ This is a library application project built using Spring Boot and deployed on Ku
 The bookshelf-service calls the book-service using a REST call to get bookshelves with all books inside of them.
 
  
-Languages and Frameworks
+<h2>Languages and Frameworks</h2>
 
 •	Java
 
