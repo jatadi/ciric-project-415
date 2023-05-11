@@ -56,7 +56,7 @@ POST http://<external_ip>/book
 
 example entries:
 
-'{
+`{
         "id": 1,
         
          "name": "1984",
@@ -68,9 +68,9 @@ example entries:
           "rating": 9,
          
           "bookshelfId": 1
-}'
+}`
 
-'{
+`{
 
 "id": 3,
 
@@ -84,7 +84,7 @@ example entries:
 
 "bookshelfId": 3
 
-}'
+}`
 
 GET http://<external_ip>/book
 
@@ -98,10 +98,13 @@ POST http://<external_ip>/bookshelf
 
 example entries:
 
-'{
+`{
+
 	“id”: “1”,
+	
 	“floor”: “2”
-}'
+	
+}`
 
 
 GET http://<external_ip>/bookshelf
@@ -114,3 +117,6 @@ GET http://<external_ip>/bookshelf/withBooks
 
 
 The following picture illustrates the architecture of the application:
+
+![useremtiseuzivotprojekteprokleti](https://github.com/jatadi/ciric-project-415/assets/119642721/fc58b423-7619-4b64-9931-1a172c85b5b1)
+
