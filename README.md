@@ -15,7 +15,6 @@ The bookshelf-service calls the book-service using a REST call to get bookshelve
 
 •	Maven
 
-•	MySQL
 
 <h2>Setup</h2>
 
